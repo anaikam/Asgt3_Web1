@@ -8,7 +8,7 @@ import flask
 # import reg.sqlite
 #-----------------------------------------------------------------------
 # ask about the folder
-app = flask.Flask(__name__, template_folder='.')
+app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET'])
 @app.route('/searchpage', methods=['GET'])
