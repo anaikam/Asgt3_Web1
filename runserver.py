@@ -20,7 +20,6 @@ def main():
     if len(sys.argv) != 2:
         print('Usage: python %s port' % sys.argv[0])
         sys.exit(1)
-    # Open the server-side socket to connect to client.
     try:
         port = int(sys.argv[1])
     except Exception:
