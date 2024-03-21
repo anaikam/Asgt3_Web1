@@ -5,7 +5,7 @@
 # Author: Bob Dondero
 #-----------------------------------------------------------------------
 import flask
-import reg.sqlite
+# import reg.sqlite
 #-----------------------------------------------------------------------
 # ask about the folder
 app = flask.Flask(__name__, template_folder='.')
