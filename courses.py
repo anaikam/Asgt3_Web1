@@ -15,4 +15,5 @@ app = flask.Flask(__name__, template_folder='.')
 def index():
     html_code = flask.render_template('index.html')
     response = flask.make_response(html_code)
+    #database handling here
     return response
