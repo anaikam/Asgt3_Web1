@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+        </style>
+    
+    <head>
+        <title>Registrar's Office Class Search</title>
+    </head>
+
+    <header>
+        <h1>Registrar's Office</h1>
+        <hr>
+    </header>
+
+    <body>
+        <h2>Class Details (class id {{classid}})</h2>
+        <table style="width:auto">
+            <tr>
+                <th>Course Id</th>
+                <th>{{general_table[0]}}</th>
+            </tr>
+            <tr>
+                <th>Days</th>
+                <th>{{general_table[1]}}</th>
+            </tr>
+            <tr>
+                <th>Start Time</th>
+                <th>{{general_table[2]}}</th>
+            </tr>
+            <tr>
+                <th>End Time</th>
+                <th>{{general_table[3]}}</th>
+            </tr>
+            <tr>
+                <th>Building</th>
+                <th>{{general_table[4]}}</th>
+            </tr>
+            <tr>
+                <th>Room</th>
+                <th>{{general_table[5]}}</th>
+            </tr>
+        </table>
+        <h2>Course Details (course id {{general_table[0]}})</h2>
+        <tr>
+            <th>Dept and Number</th>
+            {% for row in dept_table: %}
+                <th>{{row[0]}} {{row[1]}}</th>
+        </tr>
+        <tr>
+            <th>Area</th>
+            <th>{{general_table[6]}}</th>
+        </tr> 
+        <tr>
+            <th>Title</th>
+            <th>{{general_table[7]}}</th>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <th>{{general_table[8]}}</th>
+        </tr>
+        <tr>
+            <th>Prerequisites</th>
+            <th>{{general_table[9]}}</th>
+        </tr>
+        <tr>
+            <th>Professors</th>
+            {% for row in prof_table: %}
+                <th>{{row[0]}}</th>
+        </tr>
+    </body>
+    <hr>
+    <footer>
+        Created by Anaika Mehra and Vivian Ha
+    </footer>
+    <hr>
+</html>
