@@ -19,12 +19,12 @@ def main():
     # If statement to ensure we don't accept more than 1 argument.
     if len(sys.argv) != 2:
         print('Usage: python %s port' % sys.argv[0])
-        sys.exit(1)
+        sys.exit(2)
     try:
         port = int(sys.argv[1])
     except Exception:
         print('Port must be an integer.', file=sys.stderr)
-        sys.exit(1)
+        sys.exit(2)
 
     try:
         courses.app.run(host='0.0.0.0', port=port, debug=True)

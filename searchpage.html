@@ -3,6 +3,8 @@
     <style>
         table, th, td {
           border:1px solid black;
+          text-align: left; 
+    </style> 
         }
         </style>
     <head>
@@ -15,6 +17,7 @@
     </header>
     <body>
         <form action="/index" method="get">
+        
             Dept:
             <input type="text" name="dept" autofocus>
             <br/>
@@ -41,7 +44,7 @@
                 
             {% for row in table: %}
                 <tr>
-                    <th><a href="/coursedetails">{{row[0]}}</a></th>
+                    <th><a href="{{url_for('')}}"></tha></th>
                     <th>{{row[1]}}</th>
                     <th>{{row[2]}}</th>
                     <th>{{row[3]}}</th>
