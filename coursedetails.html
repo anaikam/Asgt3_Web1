@@ -44,32 +44,40 @@
             </tr>
         </table>
         <h2>Course Details (course id {{general_table[0]}})</h2>
-        <tr>
-            <th>Dept and Number</th>
-            {% for row in dept_table: %}
-                <th>{{row[0]}} {{row[1]}}</th>
-        </tr>
-        <tr>
-            <th>Area</th>
-            <th>{{general_table[6]}}</th>
-        </tr> 
-        <tr>
-            <th>Title</th>
-            <th>{{general_table[7]}}</th>
-        </tr>
-        <tr>
-            <th>Description</th>
-            <th>{{general_table[8]}}</th>
-        </tr>
-        <tr>
-            <th>Prerequisites</th>
-            <th>{{general_table[9]}}</th>
-        </tr>
-        <tr>
-            <th>Professors</th>
-            {% for row in prof_table: %}
-                <th>{{row[0]}}</th>
-        </tr>
+        <table style="width:auto">
+            <tr>
+                
+                {% for row in dept_table: %}
+                    <th>Dept and Number</th>
+                    <th>{{row[0]}} {{row[1]}}</th>
+                    <br>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Area</th>
+                <th>{{general_table[6]}}</th>
+            </tr> 
+            <tr>
+                <th>Title</th>
+                <th>{{general_table[7]}}</th>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <th>{{general_table[8]}}</th>
+            </tr>
+            <tr>
+                <th>Prerequisites</th>
+                <th>{{general_table[9]}}</th>
+            </tr>
+            <tr>
+                
+                {% for row in prof_table: %}
+                    <th>Professors</th>
+                    <th>{{row}}</th>
+                    <br>
+                {% endfor %}
+            </tr>
+    </table>
     </body>
     <hr>
     <footer>

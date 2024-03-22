@@ -17,7 +17,9 @@
     </header>
     <body>
         <form action="/index" method="get">
-        
+            input { 
+                text-align: right; 
+            }
             Dept:
             <input type="text" name="dept" autofocus>
             <br/>
@@ -44,7 +46,8 @@
                 
             {% for row in table: %}
                 <tr>
-                    <th><a href="{{url_for('')}}"></tha></th>
+                    <!-- http://127.0.0.1:13000/coursedetails%3Fclassid=?classid=8361 -->
+                    <th><a href="{{ url_for('coursedetails', classid=row[0]) }}"><button type="submit" value="{{ row[0] }}">{{row[0]}}</button></a></th>
                     <th>{{row[1]}}</th>
                     <th>{{row[2]}}</th>
                     <th>{{row[3]}}</th>
