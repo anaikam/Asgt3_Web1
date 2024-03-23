@@ -23,6 +23,14 @@ def index():
     try:
         table = database.course_overviews(dept, number, area, title)
     #handle error cases
+        if dept == None:
+            dept = ""
+        if number == None:
+            number = ""
+        if area == None:
+            area = ""
+        if title == None:
+            title = ""
         html_code = flask.render_template('searchpage.html', table=table,
         dept=dept, number=number, area=area, title=title)
         response = flask.make_response(html_code)
