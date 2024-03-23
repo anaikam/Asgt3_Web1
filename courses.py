@@ -23,7 +23,7 @@ def index():
     try:
         table = database.course_overviews(dept, number, area, title)
     #handle error cases
-        html_code = flask.render_template('searchpage.html', table=table)
+        html_code = flask.render_template('searchpage.html')
         response = flask.make_response(html_code)
         # response.set_cookie('prev_dept', dept)
         # response.set_cookie('prev_num', number)
