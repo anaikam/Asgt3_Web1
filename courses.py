@@ -17,27 +17,27 @@ app = flask.Flask(__name__, template_folder='.')
 @app.route('/index', methods=['GET'])
 def index():
     dept = flask.request.args.get('dept')
-    number = flask.request.args.get('coursenum')
+    num = flask.request.args.get('coursenum')
     area = flask.request.args.get('area')
     title = flask.request.args.get('title')
     try:
-        table = database.course_overviews(dept, number, area, title)
-    #handle error cases
         if dept == None:
             dept = ""
-        if number == None:
-            number = ""
+        if num == None:
+            num = ""
         if area == None:
             area = ""
         if title == None:
             title = ""
+        table = database.course_overviews(dept, num, area, title)
+    #handle error cases
         html_code = flask.render_template('searchpage.html', table=table,
-        dept=dept, number=number, area=area, title=title)
+        dept=dept, coursenum=num, area=area, title=title)
         response = flask.make_response(html_code)
-        # response.set_cookie('prev_dept', dept)
-        # response.set_cookie('prev_num', number)
-        # response.set_cookie('prev_area', area)
-        # response.set_cookie('prev_title', title)
+        response.set_cookie('prev_dept', dept)
+        response.set_cookie('prev_num', num)
+        response.set_cookie('prev_area', area)
+        response.set_cookie('prev_title', title)
     #database handling here
         return response
     except Exception as ex:
@@ -51,10 +51,10 @@ def coursedetails():
     # do a if classid is None check
     # dont convert to int
     classid = flask.request.args.get('classid')
-    # prev_dept = flask.request.cookies.get('prev_dept')
-    # prev_num = flask.request.cookies.get('prev_num')
-    # prev_area = flask.request.cookies.get('prev_area')
-    # prev_title = flask.request.cookies.get('prev_title')
+    dept = flask.request.cookies.get('prev_dept')
+    num = flask.request.cookies.get('prev_num')
+    area = flask.request.cookies.get('prev_area')
+    title = flask.request.cookies.get('prev_title')
     general_table, prof_table, dept_table = regdetails.class_details(classid)
     department_table = []
     for row3 in dept_table:
@@ -64,9 +64,8 @@ def coursedetails():
     for row2 in prof_table:
                 if general_table[0][0] == row2[0]:
                     professors_table.append(row2[1])
-    html_code = flask.render_template('coursedetails.html', classid=classid, general_table=general_table[0], prof_table=professors_table,dept_table=department_table)#, prev_dept=prev_dept, prev_area=prev_area, prev_num=prev_num, prev_title=prev_title)
+    html_code = flask.render_template('coursedetails.html', classid=classid, general_table=general_table[0], prof_table=professors_table,dept_table=department_table, dept=dept, area=area, coursenum=num, title=title)
     response = flask.make_response(html_code)
-
     return response
 
 # @app.route('/errors', methods=['GET'])
