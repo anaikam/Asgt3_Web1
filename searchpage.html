@@ -1,12 +1,5 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        table, th, td {
-          border:1px solid black;
-          text-align: left; 
-    </style> 
-        }
-        </style>
     <head>
         <title>Registrar's Office Class Search</title>
     </head>
@@ -17,50 +10,76 @@
     </header>
     <body>
         <form action="/index" method="get">
-            input { 
-                text-align: right; 
-            }
-            Dept:
-            <input type="text" name="dept" autofocus>
-            <br/>
-            Number:
-            <input type="text" name="num" autofocus>
-            <br/>
-            Area:
-            <input type="text" name="area" autofocus>
-            <br/>
-            Title:
-            <input type="text" name="title" autofocus>
-            <br/>
-            <input type="submit" value="Submit">
-        </form>
-        <hr>
-            <table style="width:auto">
+            <table>
                 <tr>
+                    <td align="right">Dept:</td>
+                    <td align="left"><input type="text" name="dept" autofocus></td>
+                </tr>
+                <tr>
+                    <td align="right">Number:</td>
+                    <td align="left"><input type="text" name="num" autofocus></td>
+                </tr>
+                <tr>
+                    <td align="right">Area:</td>
+                    <td align="left"><input type="text" name="area" autofocus></td>
+                </tr>
+                <tr>
+                    <td align="right">Title:</td>
+                    <td align="left"><input type="text" name="title" autofocus></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>
+            </table>
+        </form>
+            <style>
+            #class_table table{
+                width: auto;
+                border: 1px outset rgba(0, 0, 0, 0.75);
+                text-align: left;
+                font-weight: normal;
+            }
+            #class_table tr, #class_table td, #class_table th {
+                width: auto;
+                border: 1px inset rgba(0, 0, 0, 0.75);
+                text-align: left;
+                font-weight: normal;
+            }
+        </style>
+        <hr>
+        <div id="class_table">
+            <table>
+                <style>
+                    #table_header th {
+                        font-weight:bold;
+                    }
+                </style>
+                <tr id="table_header">
                     <th>ClassId</th>
                     <th>Dept</th>
-                    <th>Number</th>
+                    <th>Num</th>
                     <th>Area</th>
                     <th>Title</th>
-                </tr>
-                
-            {% for row in table: %}
-                <tr>
-                    <!-- http://127.0.0.1:13000/coursedetails%3Fclassid=?classid=8361 -->
-                    <th><a href="{{ url_for('coursedetails', classid=row[0]) }}"><button type="submit" value="{{ row[0] }}">{{row[0]}}</button></a></th>
-                    <th>{{row[1]}}</th>
-                    <th>{{row[2]}}</th>
-                    <th>{{row[3]}}</th>
-                    <th>{{row[4]}}</th>
-                </tr>
-            {% endfor %}
-
-            </table>
+                </tr>      
+                {% for row in table: %}
+                    <tr>
+                        <!-- http://127.0.0.1:13000/coursedetails%3Fclassid=?classid=8361 -->
+                        <th><a href="{{ url_for('coursedetails', classid=row[0]) }}"><text value="{{ row[0] }}">{{row[0]}}</text></a></th>
+                        <th>{{row[1]}}</th>
+                        <th>{{row[2]}}</th>
+                        <th>{{row[3]}}</th>
+                        <th>{{row[4]}}</th>
+                    </tr>
+                {% endfor %}
+        </table>
+        <br>
             <!--{{table}}-->
+        </div>
     </body>
     <hr>
     <footer>
-        Created by Anaika Mehra and Vivian Ha
+        Created by Anaika Mehra and Vivian Ha.
     </footer>
     <hr>
 </html>

@@ -1,87 +1,98 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>Registrar's Office Class Details</title>
+    </head>
     <style>
-        table, th, td {
-          border:1px solid black;
+        table {
+            width: auto;
+            border: 1px outset rgba(0, 0, 0, 0.75);
+            text-align: left;
+            font-weight: normal;
         }
-        </style>
+        tr, td, th {
+            width: auto;
+            border: 1px inset rgba(0, 0, 0, 0.75);
+            text-align: left;
+            font-weight: normal;
+        }
+        .labeling {
+            font-weight: bold;
+        }
+    </style>
     
     <head>
         <title>Registrar's Office Class Search</title>
     </head>
-
     <header>
         <h1>Registrar's Office</h1>
         <hr>
     </header>
-
     <body>
         <h2>Class Details (class id {{classid}})</h2>
         <table style="width:auto">
             <tr>
-                <th>Course Id</th>
+                <th class="labeling">Course Id</th>
                 <th>{{general_table[0]}}</th>
             </tr>
             <tr>
-                <th>Days</th>
+                <th class="labeling">Days</th>
                 <th>{{general_table[1]}}</th>
             </tr>
             <tr>
-                <th>Start Time</th>
+                <th class="labeling">Start time</th>
                 <th>{{general_table[2]}}</th>
             </tr>
             <tr>
-                <th>End Time</th>
+                <th class="labeling">End time</th>
                 <th>{{general_table[3]}}</th>
             </tr>
             <tr>
-                <th>Building</th>
+                <th class="labeling">Building</th>
                 <th>{{general_table[4]}}</th>
             </tr>
             <tr>
-                <th>Room</th>
+                <th class="labeling">Room</th>
                 <th>{{general_table[5]}}</th>
             </tr>
         </table>
         <h2>Course Details (course id {{general_table[0]}})</h2>
         <table style="width:auto">
-            <tr>
-                
-                {% for row in dept_table: %}
-                    <th>Dept and Number</th>
+            {% for row in dept_table: %}
+                <tr>
+                    <th class="labeling">Dept and Number</th>
                     <th>{{row[0]}} {{row[1]}}</th>
-                    <br>
-                {% endfor %}
-            </tr>
+                </tr>
+            {% endfor %}
             <tr>
-                <th>Area</th>
+                <th class="labeling">Area</th>
                 <th>{{general_table[6]}}</th>
             </tr> 
             <tr>
-                <th>Title</th>
+                <th class="labeling">Title</th>
                 <th>{{general_table[7]}}</th>
             </tr>
             <tr>
-                <th>Description</th>
+                <th class="labeling">Description</th>
                 <th>{{general_table[8]}}</th>
             </tr>
             <tr>
-                <th>Prerequisites</th>
+                <th class="labeling">Prerequisites</th>
                 <th>{{general_table[9]}}</th>
             </tr>
             <tr>
-                
                 {% for row in prof_table: %}
-                    <th>Professors</th>
+                    <th class="labeling">Professor</th>
                     <th>{{row}}</th>
-                    <br>
                 {% endfor %}
             </tr>
     </table>
     </body>
     <hr>
+        Click here to do <a href="">another class search</a>
+    <hr>
     <footer>
-        Created by Anaika Mehra and Vivian Ha
+        Created by Anaika Mehra and Vivian Ha.
     </footer>
     <hr>
 </html>

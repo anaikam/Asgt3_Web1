@@ -55,7 +55,7 @@ def coursedetails():
                 if general_table[0][0] == row2[0]:
                     professors_table.append(row2[1])
     print(professors_table)
-    html_code = flask.render_template('coursedetails.html', general_table=general_table[0], prof_table=professors_table,dept_table=department_table)
+    html_code = flask.render_template('coursedetails.html', classid=classid, general_table=general_table[0], prof_table=professors_table,dept_table=department_table)
     # html_code = flask.render_template('coursedetails.html', general_table=general_table, prof_table=prof_table, dept_table=dept_table)
     response = flask.make_response(html_code)
 
