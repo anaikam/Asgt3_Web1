@@ -48,7 +48,7 @@ def index():
         html_code = flask.render_template('error.html', ex = ex,
             message = "A server error occurred. "
             + "Please contact the system administrator.")
-        print(str(ex), file=sys.stderr)
+        print(sys.argv[1] + ": " + str(ex), file=sys.stderr)
         response = flask.make_response(html_code)
         return response
 
