@@ -68,7 +68,7 @@ def regdetails():
             message = "non-integer classid")
         response = flask.make_response(html_code)
         return response
-    
+
     try:
         gen_table, prof_table, dept_table = class_details(classid)
         department_table = []
