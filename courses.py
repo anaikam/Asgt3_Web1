@@ -4,10 +4,10 @@
 # courses.py
 # Author: Bob Dondero
 #-----------------------------------------------------------------------
+import sys
 import flask
 import database
 from regdetails import class_details
-import sys
 #-----------------------------------------------------------------------
 # ask about the folder
 # https://www.w3schools.com/html/html_tables.asp - put this in readme
@@ -21,13 +21,13 @@ def index():
     area = flask.request.args.get('area')
     title = flask.request.args.get('title')
     try:
-        if dept == None:
+        if dept is None:
             dept = ""
-        if num == None:
+        if num is None:
             num = ""
-        if area == None:
+        if area is None:
             area = ""
-        if title == None:
+        if title is None:
             title = ""
         table = database.course_overviews(dept, num, area, title)
     #handle error cases
@@ -57,28 +57,28 @@ def regdetails():
     area = flask.request.cookies.get('prev_area')
     title = flask.request.cookies.get('prev_title')
     print(type(classid))
-    if classid == '' or classid == None:
+    if classid in ('', None):
         html_code = flask.render_template('error.html',
             message = "missing classid")
         response = flask.make_response(html_code)
         return response
-    
-    elif classid.isdigit()== False:
+
+    if classid.isdigit() is False:
         html_code = flask.render_template('error.html',
             message = "non-integer classid")
         response = flask.make_response(html_code)
         return response
     else:
-        try: 
+        try:
             gen_table, prof_table, dept_table = class_details(classid)
             department_table = []
             for row3 in dept_table:
-                        if gen_table[0][0] == row3[0]:
-                            department_table.append([row3[1], row3[2]])
+                if gen_table[0][0] == row3[0]:
+                    department_table.append([row3[1], row3[2]])
             professors_table = []
             for row2 in prof_table:
-                        if gen_table[0][0] == row2[0]:
-                            professors_table.append(row2[1])
+                if gen_table[0][0] == row2[0]:
+                    professors_table.append(row2[1])
             html_code = flask.render_template('regdetails.html',
                 classid=classid, general_table=gen_table[0],
                 prof_table=professors_table,
