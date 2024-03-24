@@ -2,24 +2,22 @@
 
 #-----------------------------------------------------------------------
 # courses.py
-# Author: Bob Dondero
+#
 #-----------------------------------------------------------------------
 import sys
 import flask
 import database
 from regdetails import class_details
 #-----------------------------------------------------------------------
-# ask about the folder
-# https://www.w3schools.com/html/html_tables.asp - put this in readme
 app = flask.Flask(__name__, template_folder='.')
 
 @app.route('/', methods=['GET'])
-@app.route('/index', methods=['GET'])
 def index():
     dept = flask.request.args.get('dept')
     num = flask.request.args.get('coursenum')
     area = flask.request.args.get('area')
     title = flask.request.args.get('title')
+
     try:
         if dept is None:
             dept = ""
@@ -29,18 +27,23 @@ def index():
             area = ""
         if title is None:
             title = ""
+
+        #handles the database (querying)
         table = database.course_overviews(dept, num, area, title)
-    #handle error cases
+
         html_code = flask.render_template('searchpage.html',
             table=table, dept=dept, coursenum=num, area=area,
             title=title)
         response = flask.make_response(html_code)
+
+        #sets the cookies for later (another search)
         response.set_cookie('prev_dept', dept)
         response.set_cookie('prev_num', num)
         response.set_cookie('prev_area', area)
         response.set_cookie('prev_title', title)
-    #database handling here
         return response
+
+    #handle error cases
     except Exception as ex:
         html_code = flask.render_template('error.html', ex = ex,
             message = "A server error occurred. "
@@ -57,12 +60,12 @@ def regdetails():
     area = flask.request.cookies.get('prev_area')
     title = flask.request.cookies.get('prev_title')
 
+    #handles the missing classid, non-int classid errors
     if classid in ('', None):
         html_code = flask.render_template('error.html',
             message = "missing classid")
         response = flask.make_response(html_code)
         return response
-
     if classid.isdigit() is False:
         html_code = flask.render_template('error.html',
             message = "non-integer classid")
@@ -72,6 +75,8 @@ def regdetails():
     try:
         gen_table, prof_table, dept_table = class_details(classid)
         department_table = []
+
+        #grabs the correct departments and professors
         for row3 in dept_table:
             if gen_table[0][0] == row3[0]:
                 department_table.append([row3[1], row3[2]])
@@ -86,6 +91,8 @@ def regdetails():
             area=area, coursenum=num, title=title)
         response = flask.make_response(html_code)
         return response
+
+    #handles no classid error
     except Exception as ex:
         html_code = flask.render_template('error.html',
             ex = ex, message = "no class with classid "

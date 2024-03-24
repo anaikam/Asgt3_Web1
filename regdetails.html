@@ -3,6 +3,7 @@
     <head>
         <title>Registrar's Office Class Details</title>
     </head>
+
     <style>
         table {
             width: auto;
@@ -20,15 +21,13 @@
             font-weight: bold;
         }
     </style>
-    
-    <head>
-        <title>Registrar's Office Class Search</title>
-    </head>
+
     <header>
         <h1>Registrar's Office</h1>
         <hr>
     </header>
     <body>
+
         <h2>Class Details (class id {{classid}})</h2>
         <table id="classDetailsTable" style="width:auto">
             <tr>
@@ -56,6 +55,7 @@
                 <th>{{general_table[5]}}</th>
             </tr>
         </table>
+
         <h2>Course Details (course id {{general_table[0]}})</h2>
         <table id="courseDetailsTable" style="width:auto">
             {% for row in dept_table: %}
@@ -87,6 +87,7 @@
                 </tr>
                 {% endfor %}
     </table>
+
     </body>
     <hr>
         Click here to do <a href="{{ url_for('index', dept=dept, coursenum=coursenum, area=area, title=title) }}">another class search</a>

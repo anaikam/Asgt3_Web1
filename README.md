@@ -1,5 +1,0 @@
-# Asgt3_Web1
-Anaika's Contribution: Vivian and I pair programmed for the majority of the assignment. I figured out how to get the second webpage to display, handled errors by creating the error.html page, and tested all the programs. We worked on the other HTML pages together. I figured out how to get user's text input to stay post search. I also worked on classid errors and learned ways to detect changes mid-program. We both attended office hours separately to get our doubts cleared. I learned HTML coding for the first time and also used Flask and Jinja for the first time.
-
-Your assessment of the assignment: Did it help you to learn? What did it help you to learn? Do you have any suggestions for improvement? Etc.
-This assignment was a solid introduction to web programming. We learned how to use Jinja and Flask. 

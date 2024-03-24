@@ -27,7 +27,6 @@ def main():
         sys.exit(2)
 
     try:
-        # make sure debug=True is added back to this!
         courses.app.run(host='0.0.0.0', port=port, debug=True)
     except Exception as ex:
         print(ex, file=sys.stderr)

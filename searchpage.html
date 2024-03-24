@@ -3,29 +3,40 @@
     <head>
         <title>Registrar's Office Class Search</title>
     </head>
+
     <header>
         <h1>Registrar's Office</h1>
         <h2>Class Search</h2>
         <hr>
     </header>
+
     <body>
-        <form action="/index" method="get">
+    
+        <form action="/" method="get">
             <table>
                 <tr>
                     <td align="right">Dept:</td>
-                    <td align="left"><input type="text" id="deptInput" name="dept" value = "{{ dept }}" autofocus></td>
+                    <td align="left">
+                        <input type="text" id="deptInput" name="dept" value = "{{ dept }}" autofocus>
+                    </td>
                 </tr>
                 <tr>
                     <td align="right">Number:</td>
-                    <td align="left"><input type="text" id="coursenumInput" name="coursenum" value = "{{ coursenum }}" autofocus></td>
+                    <td align="left">
+                        <input type="text" id="coursenumInput" name="coursenum" value = "{{ coursenum }}" autofocus>
+                    </td>
                 </tr>
                 <tr>
                     <td align="right">Area:</td>
-                    <td align="left"><input type="text" id="areaInput" name="area" value = "{{ area }}" autofocus></td>
+                    <td align="left">
+                        <input type="text" id="areaInput" name="area" value = "{{ area }}" autofocus>
+                    </td>
                 </tr>
                 <tr>
                     <td align="right">Title:</td>
-                    <td align="left"><input type="text" id="titleInput" name="title" value = "{{ title }}" autofocus></td>
+                    <td align="left">
+                        <input type="text" id="titleInput" name="title" value = "{{ title }}" autofocus>
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
@@ -33,6 +44,7 @@
                 </tr>
             </table>
         </form>
+
             <style>
             #class_table table{
                 width: auto;
@@ -48,6 +60,7 @@
             }
         </style>
         <hr>
+
         <div id="class_table">
             <table id="overviewsTable">
                 <style>
@@ -64,7 +77,8 @@
                 </tr>      
                 {% for row in table: %}
                     <tr>
-                        <th><a href="{{ url_for('regdetails', classid=row[0]) }}"><text value="{{ row[0] }}">{{row[0]}}</text></a></th>
+                        <th><a href="{{ url_for('regdetails', classid=row[0]) }}">
+                            <text value="{{ row[0] }}">{{row[0]}}</text></a></th>
                         <th>{{row[1]}}</th>
                         <th>{{row[2]}}</th>
                         <th>{{row[3]}}</th>
@@ -73,8 +87,8 @@
                 {% endfor %}
         </table>
         <br>
-            <!--{{table}}-->
         </div>
+
     </body>
     <hr>
     <footer>

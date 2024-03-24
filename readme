@@ -1,0 +1,45 @@
+vh8154_anaikam
+
+Vivian Ha and Anaika Mehra
+
+Vivian's Contribution: Anaika and I pair programmed for most of the
+assignment. I mainly figured out how to use flask for cookies,
+formatting, forms, tables and url linking for the html files.
+I also tested all the programs and worked on making sure that the
+style of the page matched the reference program. We generally worked
+simultaneously to fix any errors and figure out the assignment. In
+this, I mainly learned Flask and Jinja for the first time but used
+my previous skills in HTML for the assignment.
+
+Anaika's Contribution: Vivian and I pair programmed for the majority
+of the assignment. I figured out how to get the second webpage to
+display, handled errors by creating the error.html page, and tested
+all the programs. We worked on the other HTML pages together. I figured
+out how to get user's text input to stay post search. I also worked on
+classid errors and learned ways to detect changes mid-program. We both
+attended office hours separately to get our doubts cleared. I learned
+HTML coding for the first time and also used Flask and Jinja for the
+first time.
+
+Help received:
+
+
+Sources used:
+We used web resources for reference on certain HTML/flask/etc features
+and just to learn how to do specific aspects:
+
+https://www.w3schools.com/html/html_tables.asp
+https://stackoverflow.com/questions/4309950/how-to-align-input-forms-in-html
+https://www.w3schools.com/tags/tag_label.asp
+
+https://www.w3schools.com/tags/tag_a.asp#:~:text=
+The%20tag%20defines%20a,link%20is%20underlined%20and%20blue
+
+https://www.geeksforgeeks.org/flask-cookies/
+
+
+Time spent on the assignment: 10 hours
+
+Your assessment of the assignment:
+This assignment was a solid introduction to web programming. We learned
+how to use Jinja and Flask.
