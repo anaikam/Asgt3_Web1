@@ -22,7 +22,11 @@ HTML coding for the first time and also used Flask and Jinja for the
 first time.
 
 Help received:
-
+Creston Brooks (GTA): Before we even started to code, we went to
+Creston with general ideas about how we would lay out each section
+of the project (does error pages need its own HTML file, what
+functions do we need in courses.py, etc) and confirmed our ideas with
+him.
 
 Sources used:
 We used web resources for reference on certain HTML/flask/etc features
