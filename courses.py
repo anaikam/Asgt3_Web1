@@ -6,7 +6,7 @@
 #-----------------------------------------------------------------------
 import flask
 import database
-import regdetails
+from regdetails import class_details 
 import sys
 #-----------------------------------------------------------------------
 # ask about the folder
@@ -46,8 +46,8 @@ def index():
         response = flask.make_response(html_code)
         return response
 
-@app.route('/coursedetails', methods=['GET'])
-def coursedetails():
+@app.route('/regdetails', methods=['GET'])
+def regdetails():
     # do a if classid is None check
     # dont convert to int
     classid = flask.request.args.get('classid')
@@ -67,7 +67,7 @@ def coursedetails():
         return response
     else:
         try: 
-            general_table, prof_table, dept_table = regdetails.class_details(classid)
+            general_table, prof_table, dept_table = class_details(classid)
             department_table = []
             for row3 in dept_table:
                         if general_table[0][0] == row3[0]:
@@ -76,7 +76,7 @@ def coursedetails():
             for row2 in prof_table:
                         if general_table[0][0] == row2[0]:
                             professors_table.append(row2[1])
-            html_code = flask.render_template('coursedetails.html', classid=classid, general_table=general_table[0], prof_table=professors_table,dept_table=department_table, dept=dept, area=area, coursenum=num, title=title)
+            html_code = flask.render_template('regdetails.html', classid=classid, general_table=general_table[0], prof_table=professors_table,dept_table=department_table, dept=dept, area=area, coursenum=num, title=title)
             response = flask.make_response(html_code)
             return response
         except Exception as ex:

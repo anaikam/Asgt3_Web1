@@ -13,23 +13,23 @@
             <table>
                 <tr>
                     <td align="right">Dept:</td>
-                    <td align="left"><input type="text" name="dept" value = "{{ dept }}" autofocus></td>
+                    <td align="left"><input type="text" id="deptInput" name="dept" value = "{{ dept }}" autofocus></td>
                 </tr>
                 <tr>
                     <td align="right">Number:</td>
-                    <td align="left"><input type="text" name="coursenum" value = "{{ coursenum }}" autofocus></td>
+                    <td align="left"><input type="text" id="coursenumInput" name="coursenum" value = "{{ coursenum }}" autofocus></td>
                 </tr>
                 <tr>
                     <td align="right">Area:</td>
-                    <td align="left"><input type="text" name="area" value = "{{ area }}" autofocus></td>
+                    <td align="left"><input type="text" id="areaInput" name="area" value = "{{ area }}" autofocus></td>
                 </tr>
                 <tr>
                     <td align="right">Title:</td>
-                    <td align="left"><input type="text" name="title" value = "{{ title }}" autofocus></td>
+                    <td align="left"><input type="text" id="titleInput" name="title" value = "{{ title }}" autofocus></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Submit"></td>
+                    <td><input type="submit" id="submitButton" value="Submit"></td>
                 </tr>
             </table>
         </form>
@@ -49,7 +49,7 @@
         </style>
         <hr>
         <div id="class_table">
-            <table>
+            <table id="overviewsTable">
                 <style>
                     #table_header th {
                         font-weight:bold;
@@ -64,8 +64,7 @@
                 </tr>      
                 {% for row in table: %}
                     <tr>
-                        <!-- http://127.0.0.1:13000/coursedetails%3Fclassid=?classid=8361 -->
-                        <th><a href="{{ url_for('coursedetails', classid=row[0]) }}"><text value="{{ row[0] }}">{{row[0]}}</text></a></th>
+                        <th><a href="{{ url_for('regdetails', classid=row[0]) }}"><text value="{{ row[0] }}">{{row[0]}}</text></a></th>
                         <th>{{row[1]}}</th>
                         <th>{{row[2]}}</th>
                         <th>{{row[3]}}</th>

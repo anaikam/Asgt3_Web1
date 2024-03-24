@@ -30,7 +30,7 @@
     </header>
     <body>
         <h2>Class Details (class id {{classid}})</h2>
-        <table style="width:auto">
+        <table id="classDetailsTable" style="width:auto">
             <tr>
                 <th class="labeling">Course Id</th>
                 <th>{{general_table[0]}}</th>
@@ -57,7 +57,7 @@
             </tr>
         </table>
         <h2>Course Details (course id {{general_table[0]}})</h2>
-        <table style="width:auto">
+        <table id="courseDetailsTable" style="width:auto">
             {% for row in dept_table: %}
                 <tr>
                     <th class="labeling">Dept and Number</th>
