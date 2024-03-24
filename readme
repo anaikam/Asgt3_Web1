@@ -28,12 +28,22 @@ of the project (does error pages need its own HTML file, what
 functions do we need in courses.py, etc) and confirmed our ideas with
 him.
 
+Haichen: Haichen helped us resolve issues regarding regdetails and 
+its connection to classid. He also gave us some general testing
+strategies.
+
+Kuba: Kuba helped us figure out URL handling for the second HTML page.
+He also taught us how to store classid and errors.
+
 Sources used:
 We used web resources for reference on certain HTML/flask/etc features
 and just to learn how to do specific aspects:
 
 https://www.w3schools.com/html/html_tables.asp
-https://stackoverflow.com/questions/4309950/how-to-align-input-forms-in-html
+
+https://stackoverflow.com/questions/4309950/how
+-to-align-input-forms-in-html
+
 https://www.w3schools.com/tags/tag_label.asp
 
 https://www.w3schools.com/tags/tag_a.asp#:~:text=
